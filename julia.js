@@ -1,3 +1,4 @@
+/* Final */
 const preview = document.querySelector('.preview');
 const frame = preview.querySelector('iframe');
 // Keep the artwork's desktop composition visible inside the exhibition frame.

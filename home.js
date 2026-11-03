@@ -1,3 +1,4 @@
+/* Final */
 const collage = document.querySelector('.collage');
 const papers = [...document.querySelectorAll('.paper')];
 const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
