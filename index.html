@@ -3,33 +3,38 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Essential, an interactive artwork by Julia Joung inspired by Henri Matisse's The Snail.">
-  <title>Essential — Julia Joung</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Class Exhibition — Core 1: Interaction Lab</title>
+  <meta name="description" content="Fall 2026 class exhibition, Core 1: Interaction Lab, PUCD 2035.">
+  <link rel="stylesheet" href="home.css">
 </head>
 <body>
-  <header class="site-header"><span>Exhibition</span></header>
+  <header><a href="#class">Exhibition</a></header>
   <main>
-    <section class="heading" aria-labelledby="artwork-title">
-      <div class="title"><span class="snail" aria-hidden="true">🐌</span><h1 id="artwork-title">Essential</h1></div>
-      <div class="artist"><span>Created by</span><div>Julia Joung<br><a href="mailto:Jound780@newschool.edu">Jound780@newschool.edu</a></div></div>
+    <section class="hero" aria-labelledby="course-title">
+      <div class="collage">
+        <div class="paper mint" aria-hidden="true"></div>
+        <div class="paper blue" aria-hidden="true"></div>
+        <div class="paper peach" aria-hidden="true"></div>
+        <div class="paper yellow" aria-hidden="true"></div>
+        <div class="paper purple" aria-hidden="true"></div>
+        <h1 id="course-title">Core 1:<br>Interaction<br>Lab</h1>
+        <p class="term">Fall 2026<br>PUCD 2035</p>
+        <p class="exhibition-title">Class Exhibition</p>
+      </div>
     </section>
-    <div class="artwork-layout">
-      <section class="experience" aria-label="Interactive artwork">
-        <div class="preview"><iframe src="https://0505dej.github.io/snail/" title="Essential — interactive artwork website by Julia Joung" allow="autoplay; fullscreen" allowfullscreen loading="eager"></iframe></div>
-        <a class="external-link" href="https://0505dej.github.io/snail/" target="_blank" rel="noopener noreferrer">View in a different tab <span aria-hidden="true">↗</span></a>
-        <div class="reactions" role="group" aria-label="Leave your reaction"><h2>Leave your reaction</h2><button aria-label="Amazed" data-reaction="amazed">😲</button><button aria-label="Joyful" data-reaction="joyful">😂</button><button aria-label="Peaceful" data-reaction="peaceful">☺️</button><button aria-label="Love it" data-reaction="love">😘</button></div>
-      </section>
-      <aside>
-        <section class="inspiration"><h2>Inspired Artwork</h2><figure><img src="assets/the-snail-reference.jpg" alt="Henri Matisse's The Snail: a spiral of colorful paper cutouts against an orange background"><figcaption><strong>The Snail</strong><br>Henri Matisse</figcaption></figure></section>
-        <section class="description"><h2>Description</h2><p>This website explores the idea of <u>simplicity</u>, reducing something complex to its most essential form.<br>Just as Matisse transformed the form of a snail into simple shapes and colors, the website will gradually simplify familiar objects through interaction.<br>As users move through the experience, details disappear, forms become abstract, and only the essential remains.<br><strong>How much can we remove while still keeping what matters?</strong></p></section>
-      </aside>
-    </div>
+    <section class="class-gallery" id="class" aria-labelledby="class-title">
+      <h2 id="class-title" class="class-heading"><span class="meet">MEET</span><span class="our-class">OUR CLASS</span></h2>
+      <div class="gallery-stage">
+        <p class="hover-title" aria-hidden="true"></p>
+        <div class="artwork-orbit"><div class="orbit-ring">
+          <a class="artwork snail-artwork" href="julia.html" data-title="Essential" data-artist="Julia" aria-label="Explore Essential by Julia"><span class="artwork-icon" aria-hidden="true">🐌</span></a>
+          <button class="artwork kiss-artwork" type="button" data-title="Sticker Study" data-artist="Cindy" aria-label="Sticker Study by Cindy"><span class="artwork-icon" aria-hidden="true">😘</span></button>
+          <button class="artwork shell-artwork" type="button" data-title="Ocean Park No.30" data-artist="Amber" aria-label="Ocean Park No.30 by Amber"><span class="artwork-icon" aria-hidden="true">🐚</span></button>
+        </div></div>
+        <p class="hover-artist" aria-hidden="true"></p>
+      </div>
+    </section>
   </main>
-  <nav class="artwork-navigation" aria-label="Artwork navigation">
-    <button type="button" class="page-navigation" disabled title="Previous artwork will be connected soon"><span aria-hidden="true">←</span> previous</button>
-    <button type="button" class="page-navigation" disabled title="Next artwork will be connected soon">next <span aria-hidden="true">→</span></button>
-  </nav>
-  <script src="script.js"></script>
+  <script src="home.js"></script>
 </body>
 </html>
