@@ -8,17 +8,25 @@ new ResizeObserver(([entry]) => {
   frame.style.transform = `scale(${entry.contentRect.width / 1440})`;
 }).observe(preview);
 const buttons = [...document.querySelectorAll('[data-reaction]')];
-const status = document.querySelector('.reaction-status');
-const storageKey = 'essental-reaction';
-let selected;
-try { selected = localStorage.getItem(storageKey); } catch {}
-function render() {
-  for (const button of buttons) button.setAttribute('aria-pressed', String(button.dataset.reaction === selected));
-}
-render();
 for (const button of buttons) button.addEventListener('click', () => {
-  selected = selected === button.dataset.reaction ? null : button.dataset.reaction;
-  try { if (selected) localStorage.setItem(storageKey, selected); else localStorage.removeItem(storageKey); } catch {}
-  render();
-  status.textContent = selected ? 'Your reaction is saved on this device.' : 'Reaction removed.';
+  const rect = button.getBoundingClientRect();
+  const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  for (let i = 0; i < 12; i++) {
+    const particle = document.createElement('span');
+    particle.className = 'reaction-particle';
+    particle.textContent = button.textContent;
+    particle.setAttribute('aria-hidden', 'true');
+    particle.style.left = `${rect.left + rect.width / 2}px`;
+    particle.style.top = `${rect.top + rect.height / 2}px`;
+    document.body.append(particle);
+    const drift = (Math.random() - .5) * 180;
+    const rise = 100 + Math.random() * 180;
+    const animation = particle.animate([
+      { transform: 'translate(-50%, -50%) scale(.5)', opacity: 0 },
+      { opacity: 1, offset: .15 },
+      { transform: reducedMotion ? 'translate(-50%, -50%) scale(1)' : `translate(calc(-50% + ${drift}px), calc(-50% - ${rise}px)) rotate(${(Math.random() - .5) * 50}deg) scale(1.1)`, opacity: 0 }
+    ], { duration: reducedMotion ? 250 : 900 + Math.random() * 600, delay: reducedMotion ? 0 : i * 25, easing: 'cubic-bezier(.15,.6,.35,1)' });
+    animation.onfinish = () => particle.remove();
+    animation.oncancel = () => particle.remove();
+  }
 });
